@@ -4,7 +4,7 @@ const CourseDetails = () => {
     return (
         <div className='flex justify-between'>
             {/* left side */}
-            <div className='w-1/2'>
+            <div className='w-full md:w-1/2'>
                  <h2>Voluptatem dignissimos provident quasi corporis</h2>
                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                  <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -15,7 +15,7 @@ const CourseDetails = () => {
             </div>
 
             {/* right side */}
-            <div className='w-1/2'>
+            <div className='w-full md:w-1/2 '>
 
             </div>
         </div>

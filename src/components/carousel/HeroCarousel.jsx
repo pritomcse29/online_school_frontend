@@ -1,7 +1,7 @@
 import heroImage from '../assets/img/hero-bg.jpg'
 const HeroCarousel = () => {
     return (
-        <div className='w-full h-[475px] bg-cover bg-center grayscale-25' style={{backgroundImage:`url(${heroImage})`}}>
+        <div className='w-full h-[475px] bg-cover bg-center shadow-sm bg-base-100' style={{backgroundImage:`url(${heroImage})`}}>
             {/* <div className='bg-gradient-to-r from-gray-300 via-purple-500 to-pink-500'> */}
                       {/* left side */}
             

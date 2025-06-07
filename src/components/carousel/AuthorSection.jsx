@@ -7,7 +7,7 @@ import { FaGithub } from "react-icons/fa";
 
 const AuthorSection = () => {
     return (
-        <div className='flex justify-center  bg-amber-50 p-16'>
+        <div className='flex justify-center flex-wrap md:flex-wrap lg:flex-nowrap bg-amber-50 p-16'>
             {/* Author Section */}
             {/* left text */}
             <div className='w-1/12 mt-4'>
@@ -16,12 +16,12 @@ const AuthorSection = () => {
                 <FaSquareInstagram className='text-black'/>
                 <FaGithub className='text-black mt-3'></FaGithub>
             </div>
-            <div className='w-6/12'>
+            <div className='w-11/12 lg:w-6/12 md:w-11/12 '>
             
-               <img src={authorImage} alt="" className='h-[600px] ' />
+               <img src={authorImage} alt="" className='md:h-[600px] h-[400]' />
             </div>
             {/* right text */}
-            <div className='w-5/12 text-black mr-32'>
+            <div className='w-full lg:w-5/12 md:w-full text-black mr-32 '>
                 <h3 className='text-xl font-bold mb-4'>About The Author</h3>
                  <p className='text-5xl tracking-wide mb-4'>Dylan Collin Is a Senior Javascript Developer Based in New York.</p>
                 <p className='my-4'>Sapien hendrerit consequat pulvinar hac porttitor congue ac imperdiet vitae porta sed duis tristique arcu eget purus sit id quisque amet ornare et aliquet neque tellus amet.
