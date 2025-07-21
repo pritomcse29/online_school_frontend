@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import defaultImage from "../../assets/img/noContent.png"
 
 const CourseItem = ({course}) => {
@@ -22,7 +23,16 @@ const CourseItem = ({course}) => {
                         <h2 className="card-title">{course.name}</h2>
                         <p>{course.price}</p>
                         <p>{course.duration}</p> 
-                        <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md xl:btn-md">Enroll Now</button>               
+                        {/* <button src=`courses/${course.id}` className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md xl:btn-md">Enroll Now</button> 
+                                       */}
+
+                                        <Link
+          to={`/courses/${course.id}`}
+          className="btn btn-xs sm:btn-sm md:btn-md lg:btn-md xl:btn-md bg-blue-600 text-white hover:bg-blue-700 rounded"
+        >
+          Enroll Now
+        </Link>
+        
                     </div>
 
             </div>   

@@ -3,7 +3,8 @@ import AboutUs from "../../components/carousel/AboutUs";
 import AuthorSection from "../../components/carousel/AuthorSection";
 import Courses from "../../components/courses/Courses"
 import Subject from "../../components/courses/Subject";
-import TeacherAdmin from "../../components/TeacherAdminShow.jsx/TeacherAdmin";
+import Review from "../../components/review/Review";
+import TeacherAdmin from "../../components/TeacherAdminShow/TeacherAdmin";
 import TotalCount from "../../components/totalcount/TotalCount";
 import Hero from "./Hero";
 
@@ -17,6 +18,7 @@ const Home = () => {
            <Subject/>
            <Courses/>
            <TeacherAdmin/>
+           {/* <Review/> */}
         </div>
     );
 };

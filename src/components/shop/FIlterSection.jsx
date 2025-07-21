@@ -1,6 +1,7 @@
 import React from 'react';
 
-const FIlterSection = () => {
+const FIlterSection = ({handlePriceRange,priceRange,subjects, selectedSubjects,
+         handleSubjectsChange}) => {
     return (
       
                     <div className="bg-white text-black"> 
@@ -16,16 +17,21 @@ const FIlterSection = () => {
                             className="input validator bg-white border-gray-200 w-2/6"
                             required
                             placeholder="Type a number"
-                            min="1"
-                            max="10"
+                            min="0"
+                            max={priceRange[1]}
+                            value={priceRange[0]}
+                            onChange={(e)=>handlePriceRange(0,Number(e.target.value))}
                             title="Must be between be 1 to 10"
                             />
                             <input 
                             
-                            type="range"
-                             min={0} 
-                             max="100"
-                            value="0"
+                             type="range"
+                             min="0"
+                             step="10"
+                             max="1000"
+                          
+                            value ={priceRange[0]}
+                            onChange={(e)=>handlePriceRange(0,Number(e.target.value))}
                             className="range range-accent w-3/6" />
                         </div>
                      
@@ -36,19 +42,29 @@ const FIlterSection = () => {
                         className="input validator bg-white border-gray-200 w-2/6"
                         required
                         placeholder="Type a number"
-                        min="1"
-                        max="10"
+                      
+                         min={priceRange[0]}
+                         max="1000"
+                         step="10"
+                         value={priceRange[1]}
+                         onChange={(e) => handlePriceRange(1, Number(e.target.value))}
                         title="Must be between be 1 to 10"
                         />
                      <input 
                             
                             type="range"
-                             min={0} 
-                             max="100"
-                            value="0"
+    min={priceRange[0]}
+    max="1000"
+    step="10"
+    value={priceRange[1]}
+    onChange={(e) => handlePriceRange(1, Number(e.target.value))}
+
                             className="range range-accent w-3/6" />
                         </div>
-                       
+                       <div className='flex justify-end'>
+                        <p>{priceRange[0]} tk</p>
+                        <p>{priceRange[1]} tk</p>
+                       </div>
                     </div>
                 </div>
 
@@ -56,14 +72,20 @@ const FIlterSection = () => {
                     <div className="card-body">
                         <h2 className="card-title">Subject</h2>
                         
-                        <form class="max-w-sm mx-auto">
-                        <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                            <option selected>All Subjects</option>
-                            <option value="US"></option>
+                        <form className="max-w-sm mx-auto">
+                        <label  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
+                        <select value={selectedSubjects} onChange={(e)=>handleSubjectsChange(e.target.value)} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option value="">All Subjects</option>
+                                  {subjects.map(subject=>(
+                                        <option key = {subject.id} value={subject.id}>
+                                          {subject.title}
+                                        </option>
+                                  ))}
+                       
+                              {/* <option value="DE">Germany</option> */}
                             {/* <option value="CA">Canada</option>
                             <option value="FR">France</option>
-                            <option value="DE">Germany</option> */}
+                           */}
                         </select>
                         </form>
 
@@ -100,9 +122,9 @@ const FIlterSection = () => {
                     <div className="card-body">
                         <h2 className="card-title">Sort By Price</h2>
                         
-                        <form class="max-w-sm mx-auto ">
-                        <label for="countries" class="block mb-2 text-sm font-medium text-white dark:text-white">Select an option</label>
-                        <select id="countries" class="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-300 dark:text-balck dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <form className="max-w-sm mx-auto ">
+                        <label  className="block mb-2 text-sm font-medium text-white dark:text-white">Select an option</label>
+                        <select id="countries" className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-white dark:border-gray-300 dark:placeholder-gray-300 dark:text-balck dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option selected>Default</option>
                             <option value="">Price:Low to High</option>
                             <option value="">Price:High to Low</option>
