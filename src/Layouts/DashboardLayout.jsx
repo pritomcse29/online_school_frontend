@@ -1,7 +1,8 @@
 
 import { FiPackage, FiShoppingCart, FiUsers, FiStar } from "react-icons/fi";
 import Navbar from "../components/dashboard/Navbar";
-import Sidebar from "../components/dashboard/sidebar";
+// import Sidebar from "../components/dashboard/sidebar";
+import Sidebar from "../components/dashboard/Sidebar";
 import StarCart from "../components/dashboard/StarCart";
 
 import { Outlet } from "react-router";
