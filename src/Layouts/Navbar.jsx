@@ -378,7 +378,7 @@ const Navbar = () => {
       case "teacher":
         return "/dashboard/teacher-dashboard";
       case "student":
-        return "/dashboard/order";
+        return "/dashboard/cart";
       default:
         return "/dashboard";
     }
