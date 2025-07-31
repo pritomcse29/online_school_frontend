@@ -9,7 +9,7 @@
 // const TeacherAdmin = () => {
 //     const [teacherAdmin,setTeacherAdmin] = useState([])
 //     useEffect(()=>{
-//         fetch('http://127.0.0.1:8000/api/v1/admin-teacher/')
+//         fetch('https://online-school-backend-1.onrender.com/api/v1/admin-teacher/')
 //         .then(res=>res.json())
 //         .then(data=>setTeacherAdmin(data))
 //     },[]) 
@@ -85,7 +85,7 @@
 //     useEffect(() => {
 //         const fetchTeam = async () => {
 //             try {
-//                 const response = await fetch('http://127.0.0.1:8000/api/v1/admin-teacher/');
+//                 const response = await fetch('https://online-school-backend-1.onrender.com/api/v1/admin-teacher/');
 //                 if (!response.ok) {
 //                     throw new Error(`HTTP error! status: ${response.status}`);
 //                 }
@@ -204,7 +204,7 @@ const TeacherAdmin = () => {
     useEffect(() => {
         const fetchTeam = async () => {
             try {
-                const response = await fetch('http://127.0.0.1:8000/api/v1/admin-teacher/');
+                const response = await fetch('https://online-school-backend-1.onrender.com/api/v1/admin-teacher/');
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

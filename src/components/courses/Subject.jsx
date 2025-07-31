@@ -4,11 +4,11 @@ const Subject = () => {
     const [subjects,setSubjects] = useState([])
     useEffect(()=>{
         
-        fetch('http://127.0.0.1:8000/api/v1/subjects/')
+        fetch('https://online-school-backend-1.onrender.com/api/v1/subjects/')
         .then(res=>res.json())
         .then(data=>setSubjects(data.results))
     },[])
-    return (
+    return ( 
         <div className='mt-8'>
                 <div className='flex justify-between px-8 '>
                     <h1 className='text-2xl text-emerald-500'>All subjects</h1>
