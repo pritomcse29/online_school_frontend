@@ -2,10 +2,12 @@
 import { FiPackage, FiShoppingCart, FiUsers, FiStar } from "react-icons/fi";
 import Navbar from "../components/dashboard/Navbar";
 // import Sidebar from "../components/dashboard/sidebar";
-import Sidebar from "../components/dashboard/Sidebar";
+// import Sidebar from "../components/dashboard/sidebar";
+// import Sidebar from "../components/dashboard/Sidebar2";
 import StarCart from "../components/dashboard/StarCart";
 
 import { Outlet } from "react-router";
+import Sidebar2 from "../components/dashboard/Sidebar2";
 
 export default function DashboardLayout() {
 
@@ -22,7 +24,7 @@ export default function DashboardLayout() {
         
         </main>
       </div>
-      <Sidebar />
+      <Sidebar2/>
     </div>
   );
 }
