@@ -70,7 +70,7 @@ online-school-frontend/
 
 🔌 Environment Variables
 Create a .env file with the following:
-API_BASE_URL=https://online-school-backend.vercel.app/api/v1
+API_BASE_URL=https://online-school-backend-1.onrender.com/api/v1
 SSLCOMMERZ_STORE_ID=your_test_store_id
 SSLCOMMERZ_PAYMENT_URL=https://sandbox.sslcommerz.com/gwprocess/v4/api.php
 
@@ -87,7 +87,7 @@ App runs at: http://localhost:5173
 🌐 Deployment
 Deployed via Vercel:
 
-🔗 https://online-school-frontend.vercel.app
+🔗 https://online-school-frontend-wbqk.vercel.app
 
 Make sure .env variables are configured correctly in your Vercel project settings.
 
@@ -109,7 +109,7 @@ Axios interceptors for auth headers
 
 🧾 API Documentation
 Backend Swagger Docs:
-https://online-school-backend.vercel.app/swagger/
+https://online-school-backend-1.onrender.com/swagger/
 
 All requests are prefixed with:
 API_BASE_URL + /api/v1/
