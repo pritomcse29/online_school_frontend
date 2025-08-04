@@ -94,6 +94,7 @@ import React, { useState } from "react";
 import { CiCirclePlus } from "react-icons/ci";
 import { GiHamburgerMenu } from "react-icons/gi";
 import useAuth from "../hooks/useAuth";
+import { Link } from 'react-router-dom'; 
 
 export default function Sidebar2() {
   const [isOpen, setIsOpen] = useState(false);
@@ -128,39 +129,56 @@ export default function Sidebar2() {
         </h2>
 
         <div className="mb-6">
+          <Link to="http://localhost:5173">
           <button className="flex items-center text-sm font-medium text-gray-600 hover:text-black transition">
             <CiCirclePlus className="mr-2 text-lg" />
             Dashboard
           </button>
+          </Link>
+          
         </div>
 
         <ul className="space-y-1">
           {/* Shared menu */}
           <li>
+            <Link to="http://localhost:5173/courses">
             <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
               Courses
             </button>
+            </Link>
+            
           </li>
           <li>
-            <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+            <Link to="http://localhost:5173/dashboard/order">
+             <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
               Orders
             </button>
+            </Link>
+           
           </li>
 
           {/* Admin specific */}
           {isAdmin && (
             <>
               <li>
+                <Link to="http://localhost:5173/courses">
+                     
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
-                  Subjects
+                  courses
                 </button>
+                </Link>
+           
               </li>
               <li>
+                <Link to="http://localhost:5173/dashboard/teacher-dashboard">
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
-                  Add Subjects
+                  Add Courses
                 </button>
+                </Link>
+                
               </li>
               <li>
+                <Link to="http://localhost:5173/dashboard/cart"></Link>
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
                   Users
                 </button>
@@ -183,9 +201,14 @@ export default function Sidebar2() {
           {isStudent && (
             <>
               <li>
-                <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+                <Link to="http://localhost:5173/dashboard/cart">
+                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+                 
                   My Cart
                 </button>
+                </Link>
+                
+               
               </li>
               <li>
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">

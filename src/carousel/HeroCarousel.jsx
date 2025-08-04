@@ -1,4 +1,6 @@
 import heroImage from '../assets/img/hero-bg.jpg'
+// import courseThree from '../assets/img/course-3.jpg';
+
 const HeroCarousel = () => {
     return (
         <div className='w-full h-[475px] bg-cover bg-center grayscale-25' style={{backgroundImage:`url(${heroImage})`}}>
@@ -22,10 +24,10 @@ const HeroCarousel = () => {
           </button>
         </div> */}
             {/* right side */}
-                <div>
-                <img src={'../assets/img/course-3.jpg'} alt="" />
+                {/* <div>
+                <img src={courseThree} alt="" />
                 </div>
-            
+             */}
            
         </div>
     );
