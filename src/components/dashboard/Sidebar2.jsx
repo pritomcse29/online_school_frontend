@@ -129,7 +129,7 @@ export default function Sidebar2() {
         </h2>
 
         <div className="mb-6">
-          <Link to="http://localhost:5173">
+          <Link to="https://online-school-frontend-wbqk.vercel.app">
           <button className="flex items-center text-sm font-medium text-gray-600 hover:text-black transition">
             <CiCirclePlus className="mr-2 text-lg" />
             Dashboard
@@ -141,7 +141,7 @@ export default function Sidebar2() {
         <ul className="space-y-1">
           {/* Shared menu */}
           <li>
-            <Link to="http://localhost:5173/courses">
+            <Link to="https://online-school-frontend-wbqk.vercel.app/courses">
             <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
               Courses
             </button>
@@ -149,7 +149,7 @@ export default function Sidebar2() {
             
           </li>
           <li>
-            <Link to="http://localhost:5173/dashboard/order">
+            <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/order">
              <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
               Orders
             </button>
@@ -160,8 +160,14 @@ export default function Sidebar2() {
           {/* Admin specific */}
           {isAdmin && (
             <>
+             <li>
+                <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+                  Profile
+                </button>
+              </li>
               <li>
-                <Link to="http://localhost:5173/courses">
+                {/* https://online-school-frontend-wbqk.vercel.app/dashboard/order */}
+                <Link to="https://online-school-frontend-wbqk.vercel.app/courses">
                      
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
                   courses
@@ -170,30 +176,36 @@ export default function Sidebar2() {
            
               </li>
               <li>
-                <Link to="http://localhost:5173/dashboard/teacher-dashboard">
+                <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/teacher-dashboard">
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
                   Add Courses
                 </button>
                 </Link>
                 
               </li>
-              <li>
-                <Link to="http://localhost:5173/dashboard/cart"></Link>
-                <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
-                  Users
-                </button>
-              </li>
+              <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/profile">
+                <li>
+                  
+                  <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+                    Profile
+                  </button>
+                </li>
+             </Link>
             </>
           )}
 
           {/* Teacher-specific */}
           {isTeacher && (
             <>
+             <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/profile">
               <li>
+                
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
-                  Add Courses
+                  Profile
                 </button>
               </li>
+             </Link>
+             
             </>
           )}
 
@@ -201,7 +213,7 @@ export default function Sidebar2() {
           {isStudent && (
             <>
               <li>
-                <Link to="http://localhost:5173/dashboard/cart">
+                <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/cart">
                  <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
                  
                   My Cart
@@ -215,6 +227,14 @@ export default function Sidebar2() {
                   My Reviews
                 </button>
               </li>
+            <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/profile">
+              <li>
+                
+                <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+                  Profile
+                </button>
+              </li>
+             </Link>
             </>
           )}
         </ul>
