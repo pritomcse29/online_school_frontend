@@ -386,25 +386,25 @@ const Navbar = () => {
 
   return (
     <nav className="bg-white shadow-md p-4 flex justify-between items-center">
-      <Link to="/" className="text-xl font-bold">EduPortal</Link>
+      <Link to="/" className="text-xl font-bold text-emerald-500" >EduPortal</Link>
 
-      <div className="flex gap-4 items-center">
-        <NavLink to="/" className="text-gray-600 hover:text-black">Home</NavLink>
-        <NavLink to="/courses" className="text-gray-600 hover:text-black">Courses</NavLink>
+      <div className="flex gap-4 items-center ">
+        <NavLink to="/" className="text-emerald-500 hover:text-black">Home</NavLink>
+        <NavLink to="/courses" className="text-emerald-500 hover:text-black">Courses</NavLink>
 
         {user && (
           <>
-            <NavLink to={dashboardLink} className="text-gray-600 hover:text-black">
+            <NavLink to={dashboardLink} className="text-emerald-500 hover:text-black">
               Dashboard
             </NavLink>
-            <span className="text-sm text-gray-500">Role: {groupName}</span>
+            <span className="text-sm text-emerald-500">Role: {groupName}</span>
           </>
         )}
 
         {!user ? (
           <>
-            <NavLink to="/login" className="text-gray-600 hover:text-black">Login</NavLink>
-            <NavLink to="/register" className="text-gray-600 hover:text-black">Register</NavLink>
+            <NavLink to="/login" className="text-emerald-500 hover:text-black">Login</NavLink>
+            <NavLink to="/register" className="text-emerald-500 hover:text-black">Register</NavLink>
           </>
         ) : (
           <button

@@ -1,5 +1,4 @@
 import React from 'react';
-
 const StarCart = ({icon:Icon,title,value}) => {
     return (
         <div>

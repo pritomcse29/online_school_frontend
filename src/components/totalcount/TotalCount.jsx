@@ -115,8 +115,10 @@ const TotalCount = () => {
     useEffect(() => {
         const fetchCounts = async () => {
             try {
+                // const response = await fetch('http://127.0.0.1:8000/api/v1/count-view/');
+
                 const response = await fetch('https://online-school-backend-1.onrender.com/api/v1/count-view/');
-                if (!response.ok) {
+                if (!response.ok) {  
                     throw new Error('Failed to fetch data');
                 }
                 const data = await response.json();

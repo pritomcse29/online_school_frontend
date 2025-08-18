@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
+import AuthContext from '../context/AuthContext';
 
 const Navbar = () => {
+ const { user, logoutUser } = useContext(AuthContext);
+  //  const { user, logoutUser } = useContext(AuthContext);
+  
     return (
         <div>
     <div className="navbar bg-base-100 shadow-sm">
@@ -46,7 +50,13 @@ const Navbar = () => {
           </a>
         </li>
         <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
+        {/* <li><a>Logout</a></li> */}
+         <button
+            onClick={logoutUser}
+            className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition"
+          >
+            Logout
+          </button>
       </ul>
     </div>
   </div>

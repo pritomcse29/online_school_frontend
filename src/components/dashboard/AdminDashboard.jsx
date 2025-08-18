@@ -114,7 +114,54 @@ const AdminDashboard = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
+  const [courses, setCourses] = useState([]);
+  const [subjects, setSubjects] = useState([]);
+  const [owner, setOwner] = useState([]);
 
+  const [formData, setFormData] = useState({
+      name: "",
+      description: "",
+      price: "",
+      available_seat: "",
+      duration: "",
+      subject: "",
+      owner: "",
+    });
+
+
+ useEffect(() => {
+    const fetchData = async () => {
+      // Combine fetches for initial data
+      try {
+        const [subjectsRes, ownerRes] = await Promise.all([
+          ApiClient.get("/subjects/"),
+          ApiClient.get("/admin-teacher/"),
+        ]);
+        setSubjects(subjectsRes.data.results);
+        setOwner(ownerRes.data);
+
+        // Fetch courses only if authTokens are available
+        // if (authTokens?.access) {
+        //   const coursesRes = await ApiClient.get("/dashboard/teacher/", {
+        //     headers: {
+        //       Authorization: `JWT ${authTokens?.access}`,
+        //     },
+        //   });
+        //   setCourses(coursesRes.data?.my_courses || []);
+        // }
+      } catch (err) {
+        console.error(
+          "❌ Failed to fetch dashboard data:",
+          err.response?.data || err.message
+        );
+        setError("Failed to load dashboard data. Please try again.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [authTokens]); // Depend on authTokens to refetch if they change
   // Basic role check (uncomment and adjust if you have proper user roles)
   // if (!user || !user.groups.some(group => group.name === "admin")) {
   //   return <Navigate to="/unauthorized" replace />; // Redirect to an unauthorized page
@@ -138,6 +185,8 @@ const AdminDashboard = () => {
       }
     };
 
+    
+
     if (authTokens?.access) { // Only fetch if authTokens are available
       fetchDashboardData();
     } else {
@@ -145,6 +194,54 @@ const AdminDashboard = () => {
       setError("Authentication required to view dashboard.");
     }
   }, [authTokens]);
+  
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+    const handleAddCourse = async (e) => {
+      e.preventDefault();
+  
+      const payload = {
+        ...formData,
+        price: parseFloat(formData.price),
+        available_seat: parseInt(formData.available_seat, 10),
+        duration: parseInt(formData.duration, 10),
+        subject: parseInt(formData.subject, 10),
+        owner: parseInt(formData.owner, 10),
+      };
+  
+      console.log("🟨 Submitting Course:", payload);
+  
+      try {
+        const res = await ApiClient.post("/courses/", payload, {
+          headers: {
+            Authorization: `JWT ${authTokens?.access}`,
+          },
+        });
+        setCourses((prev) => [...prev, res.data]);
+        setFormData({
+          name: "",
+          description: "",
+          price: "",
+          available_seat: "",
+          duration: "",
+          subject: "",
+          owner: "",
+        });
+        console.log("✅ Course created:", res.data);
+        alert("Course added successfully!"); // User feedback
+      } catch (err) {
+        console.error(
+          "❌ Course creation failed:",
+          err.response?.data || err.message
+        );
+        alert(
+          "Failed to create course. Please check the input values and ensure you are authorized."
+        );
+      }
+    };
 
   if (loading) {
     return (
@@ -185,33 +282,153 @@ const AdminDashboard = () => {
           📊 Admin Dashboard
         </h1>
 
+        {/* === Course Add Form === */}
+        <div className="bg-white shadow-xl rounded-xl p-8 max-w-2xl mx-auto border border-gray-200">
+          <h2 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+            ➕ Add New Course
+          </h2>
+          <form onSubmit={handleAddCourse} className="space-y-5">
+            {" "}
+            {/* Increased space-y */}
+            <input
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              placeholder="Course Name"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 placeholder-gray-400 transition-colors duration-200"
+              required
+            />
+            <textarea
+              name="description"
+              value={formData.description}
+              onChange={handleChange}
+              placeholder="Course Description"
+              rows="4" // Added rows for better textarea size
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 placeholder-gray-400 transition-colors duration-200"
+              required
+            />
+            <input
+              type="number"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+              placeholder="Price (e.g. 500)"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 placeholder-gray-400 transition-colors duration-200"
+              required
+              min="0" // Add min attribute for number inputs
+            />
+            <input
+              type="number"
+              name="available_seat"
+              value={formData.available_seat}
+              onChange={handleChange}
+              placeholder="Available Seats"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 placeholder-gray-400 transition-colors duration-200"
+              required
+              min="0"
+            />
+            <input
+              type="number"
+              name="duration"
+              value={formData.duration}
+              onChange={handleChange}
+              placeholder="Duration (in hours)"
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 placeholder-gray-400 transition-colors duration-200"
+              required
+              min="0"
+            />
+            <select
+              name="subject"
+              value={formData.subject}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 transition-colors duration-200"
+              required
+            >
+              <option value="">Select Subject</option>
+              {subjects.map((subj) => (
+                <option key={subj.id} value={subj.id}>
+                  {subj.title}
+                </option>
+              ))}
+            </select>
+            <select
+              name="owner"
+              value={formData.owner}
+              onChange={handleChange}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-emerald-500 focus:border-emerald-500 text-gray-800 transition-colors duration-200"
+              required
+            >
+              <option value="">Select Course Owner</option>
+              {owner.map((admin) => (
+                <option key={admin.id} value={admin.id}>
+                  {admin.email} ({admin.first_name} {admin.last_name})
+                </option>
+              ))}
+            </select>
+            <button
+              type="submit"
+              className="w-full bg-emerald-600 text-white px-6 py-3 rounded-lg hover:bg-emerald-700 active:bg-emerald-800 font-semibold text-lg transition-colors duration-200 focus:outline-none focus:ring-4 focus:ring-emerald-300"
+            >
+              Add Course
+            </button>
+          </form>
+        </div>
+
         {/* ==== Top Stats ==== */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <StatCard label="Total Courses" value={data.Total_Course} />
+          {/* <StatCard label="Total Courses" value={data.Total_Course} />
           <StatCard label="Total Subjects" value={data.Total_Subject} />
           <StatCard label="Total Mentors" value={data.Total_Mentor} />
-          <StatCard label="Total Students" value={data.Total_Student} />
+          <StatCard label="Total Students" value={data.Total_Student} /> */}
+          <StatCard label="Total Courses" value={data?.Total_Course ?? 0} />
+<StatCard label="Total Subjects" value={data?.Total_Subject ?? 0} />
+<StatCard label="Total Mentors" value={data?.Total_Mentor ?? 0} />
+<StatCard label="Total Students" value={data?.Total_Student ?? 0} />
+
         </div>
+
+
+{/* ==== Last 7 Days Orders ==== */}
+<div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">Last 7 Days Orders</h2>
+  <OrderTable orders={data?.last_7_days_orders ?? []} getStatusBadgeClass={getStatusBadgeClass} />
+</div>
+
+{/* ==== Last 30 Days Orders ==== */}
+<div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
+  <h2 className="text-2xl font-bold text-gray-900 mb-6">Last 30 Days Orders</h2>
+  <OrderTable orders={data?.last_30_days_orders ?? []} getStatusBadgeClass={getStatusBadgeClass} />
+</div>
+
+{/* ==== All Orders (Optional) ==== */}
+{data?.all_orders && (
+  <div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
+    <h2 className="text-2xl font-bold text-gray-900 mb-6">All Orders</h2>
+    <OrderTable orders={data.all_orders} getStatusBadgeClass={getStatusBadgeClass} />
+  </div>
+)}
 
         {/* ==== Last 7 Days Orders ==== */}
-        <div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
+        {/* <div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Last 7 Days Orders</h2>
           <OrderTable orders={data.last_7_days_orders} getStatusBadgeClass={getStatusBadgeClass} />
-        </div>
+        </div> */}
 
         {/* ==== Last 30 Days Orders ==== */}
-        <div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
+        {/* <div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">Last 30 Days Orders</h2>
           <OrderTable orders={data.last_30_days_orders} getStatusBadgeClass={getStatusBadgeClass} />
-        </div>
+        </div> */}
 
         {/* ==== All Orders (Optional, if data.all_orders exists) ==== */}
-        {data.all_orders && (
+        {/* {data.all_orders && (
           <div className="bg-white shadow-xl rounded-xl p-6 border border-gray-200">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">All Orders</h2>
             <OrderTable orders={data.all_orders} getStatusBadgeClass={getStatusBadgeClass} />
           </div>
-        )}
+        )} */}
+
+        
       </div>
     </div>
   );

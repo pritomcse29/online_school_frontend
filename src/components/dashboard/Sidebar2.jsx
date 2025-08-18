@@ -160,13 +160,13 @@ export default function Sidebar2() {
           {/* Admin specific */}
           {isAdmin && (
             <>
-             <li>
+             {/* <li>
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
                   Profile
                 </button>
-              </li>
-              <li>
-                {/* https://online-school-frontend-wbqk.vercel.app/dashboard/order */}
+              </li> */}
+              {/* <li>
+                
                 <Link to="https://online-school-frontend-wbqk.vercel.app/courses">
                      
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
@@ -174,15 +174,15 @@ export default function Sidebar2() {
                 </button>
                 </Link>
            
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/teacher-dashboard">
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
                   Add Courses
                 </button>
                 </Link>
                 
-              </li>
+              </li> */}
               <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/profile">
                 <li>
                   
