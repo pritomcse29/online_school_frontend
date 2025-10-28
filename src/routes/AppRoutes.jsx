@@ -182,8 +182,9 @@ import AdminDashboard from '../components/dashboard/AdminDashboard';
 import TeacherDashboard from '../components/dashboard/TeacherDashboard';
 import PaymentSuccess from '../pages/PaymentSuccess';
 import AdminCourseAdd from '../components/dashboard/adminCourseAdd';
-import AdminCourseList from '../components/dashboard/adminCourseList';
 import TeacherCourseAdd from '../components/dashboard/teacherCourseAdd';
+import AdminCourse from '../components/dashboard/AdminCourse';
+
 
 const AppRoutes = () => {
   return (
@@ -212,7 +213,7 @@ const AppRoutes = () => {
         <Route path="cart" element={<Cart />} />
         <Route path="admin-dashboard" element={<AdminDashboard />} />
         <Route path="/dashboard/adminCourseAdd" element={<AdminCourseAdd />} />
-        <Route path="/dashboard/adminCourseList" element={<AdminCourseList/>}/>
+        <Route path="/dashboard/adminCourseList" element={<AdminCourse/>}/>
         <Route path="teacher-dashboard" element={<TeacherDashboard />} />
         <Route path="/dashboard/teacherCourseAdd" element={<TeacherCourseAdd />} />
 
