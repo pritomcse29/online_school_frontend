@@ -40,7 +40,13 @@ import courseThree from '../../assets/img/course-3.jpg';
 
 const HeroCarousel = () => {
     return (
-        <div className='w-full h-[475px] bg-cover bg-center shadow-sm bg-base-100' style={{backgroundImage:`url(${heroImage})`}}>
+        <div className='w-full h-[475px] bg-cover bg-p shadow-sm bg-base-100' style={
+            {backgroundImage:`url(${heroImage})`,
+            backgroundRepeat: 'no-repeat',
+        backgroundSize: '100% 100%', // makes the image fully stretch to fill
+        backgroundPosition: 'center',
+        }
+        }>
             {/* left side */}
             <div className='p-24'>
                 <h2 className='text-5xl font-bold text-white'>Learning Today,</h2>

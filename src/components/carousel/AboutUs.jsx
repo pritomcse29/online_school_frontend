@@ -8,9 +8,9 @@ const AboutUs = () => {
             {/* left side */}
             <div className='w-full lg:w-1/2 md:w-full text-black mr-4'>
                  <h2 className='text-4xl font-bold mb-4'>Unlock Your Potential with Online Learning School: Learn, Grow, Succeed.</h2>
-                 <p className='text-xl italic text-gray-500'>
+                 {/* <p className='text-xl italic text-gray-500'>
                "Welcome to Online Learning School, your dedicated hub for online learning and skill development. We believe in making quality education accessible to everyone, empowering you to achieve your personal and professional goals through a diverse range of expertly crafted courses. Whether you're looking to advance your career, explore a new hobby, or simply expand your knowledge, our flexible and engaging platform is designed to support your learning journey."
-                    </p>
+                    </p> */}
                 <div className='my-4'>
                      
                     <p className='text-xl'>

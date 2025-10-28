@@ -143,19 +143,12 @@ export default function Sidebar2() {
           <li>
             <Link to="https://online-school-frontend-wbqk.vercel.app/courses">
             <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
-              Courses
+              All Courses
             </button>
             </Link>
             
           </li>
-          <li>
-            <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/order">
-             <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
-              Orders
-            </button>
-            </Link>
-           
-          </li>
+         
 
           {/* Admin specific */}
           {isAdmin && (
@@ -165,24 +158,26 @@ export default function Sidebar2() {
                   Profile
                 </button>
               </li> */}
-              {/* <li>
+              <li>
                 
-                <Link to="https://online-school-frontend-wbqk.vercel.app/courses">
+                <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/adminCourseList">
+                {/* <Link to="https://online-school-frontend-wbqk.vercel.app/courses"> */}
                      
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
-                  courses
+                  My Course
                 </button>
                 </Link>
            
-              </li> */}
-              {/* <li>
-                <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/teacher-dashboard">
+              </li>
+              <li>
+                {/* <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/adminCourseAdd"> */}
+                <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/adminCourseAdd">
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
                   Add Courses
                 </button>
                 </Link>
                 
-              </li> */}
+              </li>
               <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/profile">
                 <li>
                   
@@ -197,6 +192,26 @@ export default function Sidebar2() {
           {/* Teacher-specific */}
           {isTeacher && (
             <>
+            <li>
+                {/* <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/adminCourseAdd"> */}
+                <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/teacher-dashboard">
+                <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+                  My Courses
+                </button>
+                </Link>
+                
+              </li>
+          
+              <li>
+                {/* <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/adminCourseAdd"> */}
+                <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/teacherCourseAdd">
+                <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+                  Add Courses
+                </button>
+                </Link>
+                
+              </li>
+            
              <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/profile">
               <li>
                 
@@ -222,6 +237,14 @@ export default function Sidebar2() {
                 
                
               </li>
+               <li>
+            <Link to="https://online-school-frontend-wbqk.vercel.app/dashboard/order">
+             <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
+              Orders
+            </button>
+            </Link>
+           
+          </li>
               <li>
                 <button className="w-full text-left p-2 rounded text-sm hover:bg-gray-100 text-gray-700">
                   My Reviews

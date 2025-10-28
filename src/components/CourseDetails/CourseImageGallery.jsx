@@ -45,7 +45,7 @@ const CourseImageGallery = ({ images, CourseName }) => {
     const displayImage = images.length > 0 ? images : [{ image: defaultImage }];
 
     return (
-        <div className='rounded-xl border overflow-hidden shadow-md p-10'>
+        <div className='rounded-xl border overflow-hidden shadow-md'>
             <Swiper
                 modules={[Navigation, Thumbs]}
                 navigation

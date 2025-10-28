@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import apiClient2 from "../service/apiClient2";
-import { useNavigate } from 'react-router-dom';
+
 const useAuth = () =>{
    const [user,setUser] = useState(null);
    const [errorMsg,setErrorMsg] = useState('');
+  
 //    const navigate = useNavigate()
    const getToken =() =>{
         const token = localStorage.getItem('authTokens');
@@ -137,6 +138,7 @@ const useAuth = () =>{
         // localStorage.removeItem("cartId")
         if (typeof window !== "undefined") {
           window.location.reload(); // to reinitialize context if needed
+          // navigate("/login", { replace: true });
     }
         
     }

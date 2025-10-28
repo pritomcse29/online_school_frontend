@@ -2,6 +2,7 @@ import React from 'react';
 
 const CourseDetails = () => {
     return (
+        <>
         <div className='flex justify-between'>
             {/* left side */}
             <div className='w-full md:w-1/2'>
@@ -18,7 +19,16 @@ const CourseDetails = () => {
             <div className='w-full md:w-1/2 '>
 
             </div>
+            
         </div>
+        {/* Review Section */}
+<div className="mt-16">
+    <h3 className="text-2xl font-bold mb-6">Student Reviews</h3>
+    
+    
+</div>
+
+        </>
     );
 };
 

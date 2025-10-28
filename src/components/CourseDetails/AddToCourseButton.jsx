@@ -65,6 +65,7 @@
 import React, { useState } from 'react';
 import { FaCartArrowDown, FaCheck } from "react-icons/fa";
 import { useEnrollment } from '../context/EnrollmentContext';
+import WhatYouWillLearn from './WhatYouWillLearn';
 
 const AddToCourseButton = ({ course,courseId }) => {
     const [isAdding, setIsAdding] = useState(false);
@@ -92,6 +93,7 @@ const AddToCourseButton = ({ course,courseId }) => {
     const isOutOfSeat = course.available_seat === 0;
 
     return (
+        <>
         <div className="space-y-2 mt-4">
             <button
                 className={`p-3 w-3/6 flex items-center justify-center rounded-lg transition ${
@@ -122,7 +124,14 @@ const AddToCourseButton = ({ course,courseId }) => {
             {isOutOfSeat && (
                 <p className="text-red-600 font-medium">No seat available for this course.</p>
             )}
+
+            
         </div>
+        {/* <div>
+            <WhatYouWillLearn/>
+        </div> */}
+        
+        </>
     );
 };
 

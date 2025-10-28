@@ -1,36 +1,36 @@
-import heroImage from '../assets/img/hero-bg.jpg'
-// import courseThree from '../assets/img/course-3.jpg';
+import heroImage from "../assets/img/hero-bg.jpg";
 
 const HeroCarousel = () => {
-    return (
-        <div className='w-full h-[475px] bg-cover bg-center grayscale-25' style={{backgroundImage:`url(${heroImage})`}}>
-            {/* <div className='bg-gradient-to-r from-gray-300 via-purple-500 to-pink-500'> */}
-                      {/* left side */}
-            
-                <div className='p-24'>
-                <h2 className='text-5xl font-bold text-white'>Learning Today,</h2>
-                <h2 className='text-5xl font-bold mt-4 text-white'>Leading Tomorrow</h2>
-                <p className='text-2xl mt-4 text-white'>We are team of talented designers making websites with Bootstrap</p>
-                <button className="btn btn-neutral btn-outline border-white text-white mt-4 rounded-xl">Get Started</button>
-                </div>
-                    {/* <div className="max-w-lg bg-black bg-opacity-50 p-8 rounded-md shadow-lg">
-          <h2 className="text-5xl font-bold drop-shadow-lg">Learning Today,</h2>
-          <h2 className="text-5xl font-bold mt-4 drop-shadow-lg">Leading Tomorrow</h2>
-          <p className="text-2xl mt-4 drop-shadow-md">
-            We are a team of talented designers making websites with Bootstrap
-          </p>
-          <button className="btn btn-neutral btn-outline border-white text-white mt-6 drop-shadow-md">
-            Get Started
-          </button>
-        </div> */}
-            {/* right side */}
-                {/* <div>
-                <img src={courseThree} alt="" />
-                </div>
-             */}
-           
-        </div>
-    );
+  return (
+    <section className="relative w-full h-[600px] flex items-center justify-start overflow-hidden">
+      {/* background image */}
+      <img
+        src={heroImage}
+        alt="Hero background"
+        className="absolute inset-0 w-full h-full object-contain md:object-cover md:object-center"
+      />
+
+      {/* overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+
+      {/* text content */}
+      <div className="relative z-10 max-w-3xl px-6 md:px-24 text-white">
+        <h2 className="text-4xl md:text-6xl font-bold leading-tight drop-shadow-lg">
+          Learning Today,
+          <br />
+          Leading Tomorrow
+        </h2>
+
+        <p className="mt-6 text-lg md:text-xl text-gray-200 drop-shadow-md">
+          We are a team of talented designers making websites with Bootstrap
+        </p>
+
+        <button className="mt-8 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300">
+          Get Started
+        </button>
+      </div>
+    </section>
+  );
 };
 
 export default HeroCarousel;
