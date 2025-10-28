@@ -181,9 +181,9 @@ import Order from '../pages/Order';
 import AdminDashboard from '../components/dashboard/AdminDashboard';
 import TeacherDashboard from '../components/dashboard/TeacherDashboard';
 import PaymentSuccess from '../pages/PaymentSuccess';
-import AdminCourseAdd from '../components/dashboard/adminCourseAdd';
-import TeacherCourseAdd from '../components/dashboard/teacherCourseAdd';
 import AdminCourse from '../components/dashboard/AdminCourse';
+import TeacherCoursead from '../components/dashboard/TeacherCoursead';
+import AdminCoursead from '../components/dashboard/AdminCoursead';
 
 
 const AppRoutes = () => {
@@ -212,10 +212,10 @@ const AppRoutes = () => {
         <Route path="profile" element={<Profile />} />
         <Route path="cart" element={<Cart />} />
         <Route path="admin-dashboard" element={<AdminDashboard />} />
-        <Route path="/dashboard/adminCourseAdd" element={<AdminCourseAdd />} />
+        <Route path="/dashboard/adminCourseAdd" element={<AdminCoursead />} />
         <Route path="/dashboard/adminCourseList" element={<AdminCourse/>}/>
         <Route path="teacher-dashboard" element={<TeacherDashboard />} />
-        <Route path="/dashboard/teacherCourseAdd" element={<TeacherCourseAdd />} />
+        <Route path="/dashboard/teacherCourseAdd" element={<TeacherCoursead />} />
 
         <Route path="order" element={<Order />} />
         <Route path='payment/success/' element={<PaymentSuccess/>}></Route>
