@@ -26,7 +26,7 @@ const AboutUs = () => {
                 </div>
               
                 
-                 <button className="btn btn-success mt-8 mb-8 lg:mb-0 text-white">Read More <FaArrowRight className=' inline text-white'/></button>
+                 <button className="btn btn-success mt-8 mb-8 lg:mb-0 text-white"><a href='https://online-school-frontend-wbqk.vercel.app/login'>Read More</a> <FaArrowRight className=' inline text-white'/></button>
             </div>
 
             {/* right side */}

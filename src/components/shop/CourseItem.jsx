@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 import { FaClock, FaTag } from "react-icons/fa";
 import defaultImage from "../../assets/img/noContent.png";
 
 const CourseItem = ({ course }) => {
-  const imageSrc =
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const imageSrc = 
     course.courseImage && course.courseImage.length > 0
       ? course.courseImage[0].image
       : defaultImage;

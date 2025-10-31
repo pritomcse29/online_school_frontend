@@ -99,7 +99,7 @@ const AddToCourseButton = ({ course,courseId }) => {
                 className={`p-3 w-3/6 flex items-center justify-center rounded-lg transition ${
                     isOutOfSeat || isAdding || isAdded
                         ? 'bg-gray-400 cursor-not-allowed'
-                        : 'bg-cyan-500 hover:bg-cyan-600 text-white'
+                        : 'bg-emerald-500 hover:bg-emerald-600 text-white'
                 }`}
                 onClick={addToCart}
                 disabled={isOutOfSeat || isAdding || isAdded}

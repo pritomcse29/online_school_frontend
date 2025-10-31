@@ -13,7 +13,7 @@ const Subject = () => {
         <div className='mt-8'>
                 <div className='flex justify-between px-8 '>
                     <h1 className='text-2xl text-emerald-500'>All subjects</h1>
-                    <h1 className='text-2xl text-emerald-500'>Get all</h1>
+                    <h1 className='text-2xl text-emerald-500'><a href='https://online-school-frontend-wbqk.vercel.app/login'>Get all</a></h1>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 place-items-center py-8 mb-8'>
                     

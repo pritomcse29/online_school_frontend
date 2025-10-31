@@ -26,7 +26,7 @@ const HeroCarousel = () => {
         </p>
 
         <button className="mt-8 bg-gradient-to-r from-emerald-500 to-green-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300">
-          Get Started
+          <a href='https://online-school-frontend-wbqk.vercel.app/login'>Get Started</a>
         </button>
       </div>
     </section>

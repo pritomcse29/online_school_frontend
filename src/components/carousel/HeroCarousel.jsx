@@ -52,7 +52,7 @@ const HeroCarousel = () => {
                 <h2 className='text-5xl font-bold text-white'>Learning Today,</h2>
                 <h2 className='text-5xl font-bold mt-4 text-white'>Leading Tomorrow</h2>
                 <p className='text-2xl mt-4 text-white'>We are team of talented designers making websites with Bootstrap</p>
-                <button className="btn btn-neutral btn-outline border-white text-white mt-4 rounded-xl">Get Started</button>
+                <button className="btn btn-neutral btn-outline border-white text-white mt-4 rounded-xl"><a href='https://online-school-frontend-wbqk.vercel.app/login'>Get Started</a></button>
             </div>
             {/* right side */}
             <div>

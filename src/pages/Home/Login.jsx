@@ -73,25 +73,25 @@ const Login = () => {
           <input
             id="remember"
             type="checkbox"
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600"
+            className="w-4 h-4 text-emerald-500 bg-gray-100 border-gray-300 rounded focus:ring-emerald-500 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-emerald-500"
           />
           <span>Remember me</span>
         </label>
-        <a href="#" className="text-sm text-blue-700 hover:underline dark:text-blue-500">
+        <a href="#" className="text-sm text-emerald-500 hover:underline dark:text-emerald-500">
           Lost Password?
         </a>
       </div>
 
       <button
         type="submit"
-        className="w-full px-5 py-2.5 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" disabled={loading}
+        className="w-full px-5 py-2.5 text-sm font-medium text-white bg-emerald-500 rounded-lg hover:bg-emerald-600 focus:outline-none focus:ring-4 focus:bg-emerald-500 dark:bg-emerald-500 dark:bg-emerald-500 dark:focus:bg-emerald-500" disabled={loading}
       >
         {loading?"Log In...": "Login"}
       </button>
 
       <div className="text-sm font-medium text-center text-gray-500 dark:text-gray-300">
         Not registered?{" "}
-        <Link to='/register' className="text-blue-700 hover:underline dark:text-blue-500">
+        <Link to='/register' className="hover:underline dark:text-emerald-500">
         
           Create account
         </Link>
